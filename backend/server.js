@@ -46,6 +46,14 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Start server
 const PORT = 5000;
+// A simple route for the root URL
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'NurtureOrphan API is running!',
+    status: 'active',
+    documentation: 'Use /api/... endpoints'
+  });
+});
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
