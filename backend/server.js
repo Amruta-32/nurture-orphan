@@ -4,13 +4,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-// ✅ DECLARE app FIRST
+// 1. CREATE the app instance FIRST
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Import routes
+// 2. Import routes
 const userRoutes = require("./routes/userRoutes");
 const orphanageRoutes = require("./routes/orphanageRoutes");
 const reportRoutes = require("./routes/reportRoutes");
@@ -23,7 +23,7 @@ const sponsorshipRoutes = require("./routes/sponsorshipRoutes");
 const emailRoutes = require('./routes/emailRoutes');
 const paypalRoutes = require('./routes/paypalRoutes');
 
-// Use routes
+// 3. Use routes
 app.use("/api/users", userRoutes);
 app.use("/api/orphanages", orphanageRoutes);
 app.use("/api/reports", reportRoutes);
@@ -36,7 +36,11 @@ app.use("/api/sponsorships", sponsorshipRoutes);
 app.use('/api/email', emailRoutes);
 app.use('/api/paypal', paypalRoutes);
 
-// Root route
+// 4. Define your app's routes AFTER creating the app
+app.get('/api/ping', (req, res) => {
+  res.json({ message: "pong", time: new Date().toISOString() });
+});
+
 app.get('/', (req, res) => {
   res.json({ 
     message: 'NurtureOrphan API is running!',
@@ -45,17 +49,15 @@ app.get('/', (req, res) => {
   });
 });
 
-// Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "Backend is working!" });
 });
 
-// MongoDB connection
+// 5. Database connection and server start
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ MongoDB Connected"))
   .catch(err => console.log("❌ Error:", err));
 
-// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
