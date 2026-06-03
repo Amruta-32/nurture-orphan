@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import MyReports from "./MyReports";
 import Donation from "./Donation";
 import "./UserDashboard.css";
-
+import API_URL from '../config';
 const UserDashboard = () => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState("dashboard");
@@ -45,7 +45,7 @@ const [mySponsorships, setMySponsorships] = useState([]);
 const loadMySponsorships = async () => {
   try {
     // Fetch ALL sponsorships from your backend
-    const response = await fetch('http://localhost:5000/api/sponsorships/all');
+    const response = await fetch(`${API_URL}/sponsorships/all`);
     
     if (response.ok) {
       const data = await response.json();
@@ -85,7 +85,7 @@ const loadMyVolunteerRequests = async () => {
   if (!userName) return;
   
   try {
-    const response = await fetch(`http://localhost:5000/api/volunteer/my-applications?name=${userName}`);
+    const response = await fetch(`${API_URL}/volunteer/my-applications?name=${userName}`);
     const data = await response.json();
     if (data.success) {
       setMyVolunteerRequests(data.applications);
