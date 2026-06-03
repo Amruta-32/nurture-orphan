@@ -1,5 +1,8 @@
 require('dotenv').config();
-
+// SIMPLE TEST ROUTE - Add this FIRST
+app.get("/api/ping", (req, res) => {
+  res.json({ message: "pong", time: new Date().toISOString() });
+});
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
