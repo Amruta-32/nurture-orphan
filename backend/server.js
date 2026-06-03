@@ -1,12 +1,16 @@
 require('dotenv').config();
-// SIMPLE TEST ROUTE - Add this FIRST
-app.get("/api/ping", (req, res) => {
-  res.json({ message: "pong", time: new Date().toISOString() });
-});
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+// ✅ DECLARE app FIRST
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+// Import routes
 const userRoutes = require("./routes/userRoutes");
 const orphanageRoutes = require("./routes/orphanageRoutes");
 const reportRoutes = require("./routes/reportRoutes");
@@ -19,12 +23,7 @@ const sponsorshipRoutes = require("./routes/sponsorshipRoutes");
 const emailRoutes = require('./routes/emailRoutes');
 const paypalRoutes = require('./routes/paypalRoutes');
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-// Routes
+// Use routes
 app.use("/api/users", userRoutes);
 app.use("/api/orphanages", orphanageRoutes);
 app.use("/api/reports", reportRoutes);
@@ -37,7 +36,7 @@ app.use("/api/sponsorships", sponsorshipRoutes);
 app.use('/api/email', emailRoutes);
 app.use('/api/paypal', paypalRoutes);
 
-// ✅ Root route
+// Root route
 app.get('/', (req, res) => {
   res.json({ 
     message: 'NurtureOrphan API is running!',
@@ -46,7 +45,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// ✅ Test route
+// Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "Backend is working!" });
 });
