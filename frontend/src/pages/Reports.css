@@ -1,0 +1,125 @@
+/* ─── Reports Page ───────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.reports-page {
+  padding: 2.2rem;
+  background: #f5f8fa;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── Header ─────────────────────────────────────────── */
+.reports-header {
+  display: flex;
+  justify-content: flex-end; align-items: center;
+  margin-bottom: 2rem; padding: 0 0.5rem;
+}
+.header-buttons { display: flex; gap: 0.9rem; align-items: center; }
+
+.dashboard-btn {
+  background: #fff;
+  color: #3a4f57;
+  border: 1.5px solid #dde6ea;
+  padding: 10px 22px; border-radius: 12px;
+  font-size: 0.93rem; font-weight: 600;
+  cursor: pointer; transition: all 0.25s;
+  display: flex; align-items: center; gap: 8px;
+}
+.dashboard-btn::before { content: "←"; font-size: 1.05rem; }
+.dashboard-btn:hover { background: #f0f5f3; border-color: #e8714a; color: #e8714a; transform: translateX(-2px); }
+
+.refresh-btn {
+  background: #fff;
+  color: #e8714a;
+  border: 1.5px solid #e8714a;
+  padding: 10px 22px; border-radius: 12px;
+  font-size: 0.93rem; font-weight: 600;
+  cursor: pointer; transition: all 0.25s;
+  display: flex; align-items: center; gap: 8px;
+}
+.refresh-btn::before { content: "⟳"; font-size: 1.1rem; }
+.refresh-btn:hover {
+  background: linear-gradient(135deg, #e8714a, #c45530);
+  color: #fff; transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(232,113,74,.22);
+}
+
+/* ─── Grid ───────────────────────────────────────────── */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.7rem; margin-top: 1rem;
+}
+
+/* ─── Card ───────────────────────────────────────────── */
+.report-card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 8px rgba(24,39,47,.07);
+  border: 1px solid #dde6ea;
+  transition: all 0.28s ease;
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+.report-card:nth-child(1) { animation-delay: 0.05s; }
+.report-card:nth-child(2) { animation-delay: 0.10s; }
+.report-card:nth-child(3) { animation-delay: 0.15s; }
+.report-card:nth-child(4) { animation-delay: 0.20s; }
+
+.report-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(24,39,47,.11);
+  border-color: #e8714a;
+}
+
+.report-card h2 {
+  font-size: 1.55rem; font-weight: 700;
+  color: #1e5a43; margin-bottom: 1.4rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 3px solid #e8714a;
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+}
+
+.report-card p {
+  font-size: 0.95rem; color: #3a4f57;
+  margin: 0.65rem 0; padding: 0.55rem 0.7rem;
+  background: #f5f8fa; border-radius: 10px;
+  display: flex; justify-content: space-between; align-items: center;
+  border: 1px solid #dde6ea;
+}
+.report-card p span {
+  font-weight: 700; color: #2e7d5e; font-size: 1.05rem;
+  background: #fff; padding: 0.18rem 0.55rem; border-radius: 20px;
+}
+
+.report-card button {
+  width: 100%; margin-top: 1.6rem; padding: 12px 18px;
+  background: linear-gradient(135deg, #e8714a, #c45530);
+  color: #fff; border: none; border-radius: 13px;
+  font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 3px 12px rgba(232,113,74,.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.report-card button::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  transform: translateX(-100%); transition: transform 0.5s ease;
+}
+.report-card button:hover::after { transform: translateX(100%); }
+.report-card button:hover { transform: scale(1.02); box-shadow: 0 6px 18px rgba(232,113,74,.32); }
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .reports-page  { padding: 1rem; }
+  .reports-grid  { grid-template-columns: 1fr; gap: 1.1rem; }
+  .report-card   { padding: 1.3rem; }
+  .report-card h2 { font-size: 1.35rem; }
+}

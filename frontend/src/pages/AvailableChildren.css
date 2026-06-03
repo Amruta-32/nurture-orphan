@@ -1,0 +1,167 @@
+.available-children-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 80px 40px 40px;
+}
+
+.back-btn {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  background: linear-gradient(135deg, #ff6b4a, #e54a2c);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: all 0.3s;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(255, 107, 74, 0.3);
+}
+
+.back-btn:hover { transform: translateX(-5px); box-shadow: 0 6px 18px rgba(255, 107, 74, 0.4); }
+
+.available-children-header { text-align: center; margin-bottom: 40px; }
+.available-children-header h1 {
+  font-size: 2.2rem;
+  color: #1a2a2f;
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
+}
+.available-children-header h1 i {
+  background: linear-gradient(135deg, #e91e63, #c2185b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 12px;
+}
+.available-children-header p { color: #6b7a7f; }
+
+.adoption-stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.adoption-stats-cards .stat-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  border: 1px solid #e2e8f0;
+}
+
+.adoption-stats-cards .stat-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); }
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(255, 107, 74, 0.1), rgba(255, 107, 74, 0.05));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-icon i { font-size: 1.5rem; color: #ff6b4a; }
+.stat-info h3 { font-size: 1.8rem; font-weight: 700; color: #1a2a2f; margin-bottom: 4px; }
+.stat-info p { color: #6b7a7f; font-size: 0.85rem; }
+
+.filter-section {
+  background: white;
+  border-radius: 60px;
+  padding: 8px 20px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 380px;
+}
+.search-box i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff6b4a;
+}
+.search-box input {
+  width: 100%;
+  padding: 12px 20px 12px 48px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.search-box input:focus { outline: none; border-color: #ff6b4a; box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.1); }
+
+.filters select {
+  padding: 10px 24px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filters select:focus { outline: none; border-color: #ff6b4a; }
+
+.children-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.child-adoption-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  position: relative;
+}
+.child-adoption-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b4a, #e91e63);
+}
+.child-adoption-card:hover { transform: translateY(-8px); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1); }
+
+.adopt-now-btn {
+  width: calc(100% - 44px);
+  margin: 0 22px 22px;
+  padding: 12px;
+  background: linear-gradient(135deg, #e91e63, #c2185b);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.adopt-now-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(233, 30, 99, 0.35); }
+
+@media (max-width: 768px) {
+  .filter-section { border-radius: 24px; flex-direction: column; padding: 15px; }
+  .search-box { max-width: 100%; width: 100%; }
+  .filters { width: 100%; flex-direction: column; }
+  .filters select { width: 100%; }
+  .back-btn { padding: 8px 18px; font-size: 0.8rem; }
+}

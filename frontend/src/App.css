@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap');
+
+/* ─── App Shell ──────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f8fa;
+  color: #18272f;
+  line-height: 1.55;
+}
+html { scroll-behavior: smooth; }
+
+.app-container { min-height: 100vh; display: flex; flex-direction: column; }
+.main-content  { flex: 1; }
+
+/* ─── Global Animations ──────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(26px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes slideInRight {
+  from { opacity:0; transform:translateX(80px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+.fade-in-up { animation: fadeInUp 0.55s ease forwards; }
+
+/* ─── Loading Screen ─────────────────────────────────── */
+.loading-screen {
+  position: fixed; inset: 0;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+.loading-spinner {
+  width: 46px; height: 46px;
+  border: 3px solid #dde6ea;
+  border-top-color: #e8714a;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+/* ─── Toast Notifications ────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  padding: 13px 24px;
+  border-radius: 14px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 1100;
+  box-shadow: 0 8px 24px rgba(24,39,47,.15);
+  animation: slideInRight 0.28s ease;
+}
+.toast-success { background: #2e7d5e; }
+.toast-error   { background: #c0392b; }
+.toast-info    { background: #1565a8; }
+
+@media (max-width: 768px) {
+  .toast { bottom: 18px; right: 16px; left: 16px; text-align: center; }
+}

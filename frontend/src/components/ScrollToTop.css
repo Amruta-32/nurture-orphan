@@ -1,0 +1,38 @@
+/* ─── Scroll-to-Top Floating Button ──────────────────── */
+
+@keyframes stFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 34px;
+  right: 34px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #e8714a, #c45530);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  z-index: 900;
+  box-shadow: 0 5px 18px rgba(232, 113, 74, 0.38);
+  animation: stFadeIn 0.32s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(232, 113, 74, 0.48);
+}
+
+.scroll-to-top:active { transform: translateY(-2px); }
+
+@media (max-width: 768px) {
+  .scroll-to-top { bottom: 22px; right: 22px; width: 44px; height: 44px; font-size: 1rem; }
+}
