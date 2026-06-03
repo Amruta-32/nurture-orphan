@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
-
+import API_URL from '../config';
 const Login = () => {
   const navigate = useNavigate();
 
@@ -46,10 +46,11 @@ const Login = () => {
     setLoading(true);
     setError("");
 
-    const url =
-      role === "user"
-        ? "http://localhost:5000/api/users/login"
-        : "http://localhost:5000/api/orphanages/login";
+
+
+const url = role === "user"
+  ? `${API_URL}/users/login`
+  : `${API_URL}/orphanages/login`;
 
     try {
       const res = await fetch(url, {
