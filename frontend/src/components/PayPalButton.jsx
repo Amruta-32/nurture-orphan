@@ -1,5 +1,6 @@
 import React from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import API_URL from '../config';
 
 const PayPalButton = ({ amount, onSuccess, onError }) => {
   const clientId = import.meta.env.VITE_PAYPAL_CLIENT_ID;
@@ -7,7 +8,7 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
   const createOrder = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/paypal/create-order', {
+      const response = await fetch(`${API_URL}/paypal/create-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +28,7 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
   const onApprove = async (data) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/paypal/capture-order', {
+      const response = await fetch(`${API_URL}/paypal/capture-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

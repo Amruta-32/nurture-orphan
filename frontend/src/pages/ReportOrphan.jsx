@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ReportOrphan.css";
+import API_URL from '../config';
 
 const ReportOrphan = () => {
   const navigate = useNavigate();
