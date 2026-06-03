@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './OrphanageDashboard.css';
-
+import API_URL from '../config';
 const OrphanageDashboard = () => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState('dashboard');
@@ -65,7 +65,7 @@ const [pendingSponsorships, setPendingSponsorships] = useState([]);
 
 const loadVolunteers = async () => {
   try {
-    const response = await fetch('http://localhost:5000/api/volunteer/all');
+    const response = await fetch(`${API_URL}/volunteer/all`);
     const data = await response.json();
     console.log("Volunteers from API:", data);
     
@@ -81,7 +81,7 @@ const loadVolunteers = async () => {
  const loadChildren = async () => {
   try {
     const orphanageId = localStorage.getItem('orphanageId') || '1';
-    const response = await fetch(`http://localhost:5000/api/children/orphanage/${orphanageId}`);
+    const response = await fetch(`${API_URL}/children/orphanage/${orphanageId}`);
     const data = await response.json();
     setChildren(data.children || []);
   } catch (error) {
@@ -93,7 +93,7 @@ const loadVolunteers = async () => {
 const loadStaff = async () => {
   try {
     const orphanageId = localStorage.getItem('orphanageId') || '1';
-    const response = await fetch(`http://localhost:5000/api/staff/orphanage/${orphanageId}`);
+    const response = await fetch(`${API_URL}/staff/orphanage/${orphanageId}`);
     const data = await response.json();
     setStaff(data.staff || []);
   } catch (error) {
