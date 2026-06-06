@@ -1,0 +1,10 @@
+services:
+  - type: static
+    name: nurture-orphan
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
