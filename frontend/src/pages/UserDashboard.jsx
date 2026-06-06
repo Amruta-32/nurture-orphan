@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import MyReports from "./MyReports";
 import Donation from "./Donation";
 import "./UserDashboard.css";
-import API_URL from '../config';
+const API_URL = 'https://nurture-orphan-api.onrender.com/api';
 const UserDashboard = () => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState("dashboard");

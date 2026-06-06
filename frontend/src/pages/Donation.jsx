@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Donation.css";
 import { useNavigate } from 'react-router-dom';
 import PayPalButton from '../components/PayPalButton';
-import API_URL from '../config';
-
+const API_URL = 'https://nurture-orphan-api.onrender.com/api';
 const Donation = () => {
     const navigate = useNavigate();
     const [donations, setDonations] = useState([]);

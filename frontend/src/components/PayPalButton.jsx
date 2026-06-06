@@ -1,7 +1,6 @@
 import React from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-import API_URL from '../config';
-
+const API_URL = 'https://nurture-orphan-api.onrender.com/api';
 const PayPalButton = ({ amount, onSuccess, onError }) => {
   const clientId = import.meta.env.VITE_PAYPAL_CLIENT_ID;
 
