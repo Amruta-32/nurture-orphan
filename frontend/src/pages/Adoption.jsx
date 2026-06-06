@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Adoption.css';
 
-const API = 'http://localhost:5000/api';
-
+ const API = 'https://nurture-orphan-api.onrender.com/api';
 const Adoption = () => {
   const navigate = useNavigate();
   const [children, setChildren] = useState([]);
