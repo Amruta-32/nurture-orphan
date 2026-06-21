@@ -1,0 +1,1 @@
+NurtureOrphan is a full-stack web application built using React.js, Node.js, Express.js, and MongoDB that enables orphan rescue reporting, child adoption, sponsorship, donations, volunteer management, and orphanage administration through secure role-based dashboards, RESTful APIs, and real-time data management.
