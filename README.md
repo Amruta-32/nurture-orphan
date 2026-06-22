@@ -30,8 +30,7 @@ NurtureOrphan is a full-stack web application built using React.js, Node.js, Exp
 * HTML5
 * CSS3
 * Git & GitHub
-* Postman
-
+ 
 ## 🎯 Key Achievements
 
 * Developed a full-stack orphan welfare management platform.
