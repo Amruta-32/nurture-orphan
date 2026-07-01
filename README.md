@@ -41,5 +41,4 @@ NurtureOrphan is a full-stack web application built using React.js, Node.js, Exp
 * Built responsive dashboards for users and orphanages.
 
 ## Author
-
 **Amruta Wavdhane**
